@@ -47,4 +47,7 @@ if __name__=='__main__':
     plt.subplot(222)
     v=data.flatten()
     plt.hist(v, bins=100)
-    plt.show()
+    h=values_equalization(v, get_percentile(v,), add_random=True)
+    new_data = h.reshape((200, 267))
+    plt.subplot(223)
+    plt.imshow(new_data, cmap = plt.get_cmap('gray'))
